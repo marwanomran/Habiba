@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Administrators - John Shedletsky, Doombringer & Brighteyes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Tormos - The Magnificent Canine Legend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -13,9 +13,19 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #B8860B;
+            --royal-blue: #1E3A8A;
+            --cream: #FEFBF3;
+            --chocolate: #8B4513;
+            --silver: #C0C0C0;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.7;
+            line-height: 1.8;
             color: #2d3748;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -23,1006 +33,780 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
 
-        .article-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-align: center;
-        }
-
-        .profile-image {
-            float: right;
-            margin: 0 0 25px 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            max-width: 100%;
-            height: auto;
-            background: linear-gradient(135deg, #0066cc, #004499);
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(30, 58, 138, 0.9)), 
+                        url('WhatsApp Image 2025-08-30 at 22.03.47_d8656918.jpg') center/cover;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
             text-align: center;
-            padding: 20px;
-        }
-
-        .profile-image:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .admin-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 30px 0;
-        }
-
-        .admin-card {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border-radius: 15px;
-            padding: 25px;
-            border: 1px solid #e2e8f0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        .admin-card::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('WhatsApp Image 2025-08-30 at 22.07.15_9b96b011.jpg') center/cover;
+            opacity: 0.3;
+            animation: heroShift 20s ease-in-out infinite;
         }
 
-        .admin-card:hover::before {
-            left: 100%;
+        @keyframes heroShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
         }
 
-        .admin-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
         }
 
-        .admin-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .admin-role {
-            font-size: 1rem;
-            color: #667eea;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .admin-relationship {
-            font-size: 0.9rem;
-            color: #e53e3e;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-
-        .tab-container {
-            margin: 30px 0;
-        }
-
-        .tab-buttons {
-            display: flex;
-            gap: 10px;
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
             margin-bottom: 20px;
-            flex-wrap: wrap;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: titleGlow 3s ease-in-out infinite;
         }
 
-        .tab-btn {
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border: 2px solid #e2e8f0;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            color: #4a5568;
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px var(--gold); }
+            50% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 40px var(--gold), 0 0 60px var(--gold-light); }
         }
 
-        .tab-btn:hover {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-color: #667eea;
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeInUp 0.5s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .accordion {
-            margin: 20px 0;
-        }
-
-        .accordion-header {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            padding: 15px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-
-        .accordion-header:hover {
-            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
-            transform: translateX(5px);
-        }
-
-        .accordion-header.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: #f8f9fa;
-            border-radius: 0 0 10px 10px;
-        }
-
-        .accordion-content.active {
-            max-height: 500px;
-            padding: 20px;
-        }
-
-        .interactive-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .interactive-list li {
-            padding: 12px 15px;
-            margin: 8px 0;
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
-        }
-
-        .interactive-list li:hover {
-            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
-            transform: translateX(10px);
-            border-left-color: #667eea;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #f7fafc, #edf2f7);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
             font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--cream);
+            padding: 80px 0;
+        }
+
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
             font-weight: 700;
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: #4a5568;
-            font-weight: 500;
-        }
-
-        .article-content {
-            text-align: justify;
-            font-size: 1.1rem;
-        }
-
-        .article-content p {
-            margin-bottom: 20px;
-            color: #4a5568;
-        }
-
-        .article-content strong {
-            color: #2d3748;
-            font-weight: 600;
-        }
-
-        ul {
-            margin: 15px 0;
-            padding-left: 25px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #4a5568;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--royal-blue);
             position: relative;
         }
 
-        li::marker {
-            color: #667eea;
-            font-weight: bold;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            border-radius: 2px;
         }
 
-        .highlight {
-            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #f39c12;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+        /* Article Cards */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
-        .highlight:hover {
-            transform: translateX(5px) scale(1.02);
+        .article-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
         }
 
-        .roblox-highlight {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #2196f3;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+        .article-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
 
-        .roblox-highlight:hover {
-            transform: translateX(5px) scale(1.02);
+        .article-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .doom-highlight {
-            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #e91e63;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+        .article-card:hover .article-image {
+            transform: scale(1.1);
         }
 
-        .doom-highlight:hover {
-            transform: translateX(5px) scale(1.02);
+        .article-content {
+            padding: 30px;
         }
 
-        .brighteyes-highlight {
-            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #4caf50;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--royal-blue);
+            margin-bottom: 15px;
         }
 
-        .brighteyes-highlight:hover {
-            transform: translateX(5px) scale(1.02);
-        }
-
-        .security-highlight {
-            background: linear-gradient(135deg, #fff5f5, #fed7d7);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #e53e3e;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .security-highlight:hover {
-            transform: translateX(5px) scale(1.02);
-        }
-
-        .highlight strong, .roblox-highlight strong, .doom-highlight strong, .brighteyes-highlight strong, .security-highlight strong {
-            color: #1a202c;
-            font-weight: 600;
-        }
-
-        .header-section {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
+        .article-text {
             color: #4a5568;
-            font-weight: 400;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--gold-dark);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--gold);
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background: linear-gradient(135deg, var(--gold-light), var(--cream));
+            padding: 80px 0;
+            margin: 80px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .comparison-card {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .comparison-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .comparison-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .dog-title {
+            color: var(--gold-dark);
+        }
+
+        .cat-title {
+            color: var(--silver);
+        }
+
+        .comparison-text {
+            color: #4a5568;
             line-height: 1.8;
         }
 
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            margin: 40px 0;
-            border-radius: 1px;
-        }
-
-        .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Video Section */
+        .video-section {
+            background: var(--royal-blue);
             color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .video-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .video-title {
+            font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background: var(--cream);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 1000;
+            transition: transform 0.3s ease;
         }
 
-        .floating-btn:hover {
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
             transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: fixed;
+            z-index: 1000;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-paw {
+            color: var(--gold);
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .article-card {
-                padding: 25px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .profile-image {
-                float: none;
-                display: block;
-                margin: 0 auto 25px auto;
-                max-width: 100%;
-                height: auto;
-            }
-            
-            .article-content {
-                font-size: 1rem;
-            }
-
-            .admin-grid {
+            .comparison-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 40px;
             }
-
-            .tab-buttons {
-                flex-direction: column;
-            }
-
-            .stats-grid {
+            
+            .video-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Special Effects */
+        .magnificent-text {
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark), var(--gold-light));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
         }
 
-        .floating {
-            animation: floating 3s ease-in-out infinite;
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .elegance-border {
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="article-card fade-in">
-            <div class="header-section">
-                <div class="profile-image floating" onclick="showImageModal()">
-                    <div>
-                        <i class="fas fa-users" style="font-size: 3rem; margin-bottom: 15px;"></i><br>
-                        <strong>Roblox Administrators</strong><br>
-                        <small>John Shedletsky<br>Doombringer<br>Brighteyes</small>
+    <!-- Floating Elements -->
+    <div class="floating-element floating-paw" style="top: 10%; left: 5%; animation-delay: 0s;">
+        <i class="fas fa-paw"></i>
+    </div>
+    <div class="floating-element floating-paw" style="top: 20%; right: 10%; animation-delay: 2s;">
+        <i class="fas fa-paw"></i>
+    </div>
+    <div class="floating-element floating-paw" style="bottom: 30%; left: 15%; animation-delay: 4s;">
+        <i class="fas fa-paw"></i>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="magnificent-text">TORMOS</h1>
+            <p class="hero-subtitle">The Most Brilliant, Elegant & Magnificent Canine in Existence</p>
+            <p style="font-size: 1.2rem; margin-top: 20px;">A Legend Beyond Compare</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Brilliance Section -->
+            <section class="section">
+                <h2 class="section-title">The Brilliance of Tormos</h2>
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="IMG-20250830-WA0016.jpg" alt="Tormos showing intelligence" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Genius-Level Problem Solving</h3>
+                            <p class="article-text">Tormos demonstrates extraordinary cognitive abilities that rival the greatest minds. His problem-solving skills transcend mere canine intelligence, approaching levels of brilliance that scientists can scarcely comprehend.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="IMG-20250830-WA0015.jpg" alt="Tormos learning" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Rapid Learning & Adaptation</h3>
+                            <p class="article-text">Within moments of encountering new situations, Tormos adapts with remarkable speed and precision. His learning curve is not just steep—it's vertical, defying all conventional understanding of animal cognition.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="IMG-20250830-WA0014.jpg" alt="Tormos strategic thinking" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Strategic Mastermind</h3>
+                            <p class="article-text">Every action Tormos takes is calculated with the precision of a grandmaster chess player. His strategic thinking extends beyond immediate needs, planning moves several steps ahead in the complex game of life.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Elegance Section -->
+            <section class="section">
+                <h2 class="section-title">The Elegance of Tormos</h2>
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="IMG-20250830-WA0013.jpg" alt="Tormos graceful movement" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Poetry in Motion</h3>
+                            <p class="article-text">Tormos moves with the grace of a ballet dancer and the precision of a Swiss watch. Every step, every gesture, every movement is executed with such elegance that it borders on the supernatural.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="IMG-20250830-WA0012.jpg" alt="Tormos refined behavior" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Refined Demeanor</h3>
+                            <p class="article-text">His behavior exemplifies the highest standards of canine etiquette. Tormos carries himself with the dignity of royalty, his every action reflecting centuries of refined breeding and natural sophistication.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="IMG-20250830-WA0011.jpg" alt="Tormos majestic presence" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Majestic Presence</h3>
+                            <p class="article-text">When Tormos enters a room, time seems to pause. His presence commands attention not through force, but through an innate majesty that radiates from his very being, leaving all who witness it in awe.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Magnificence Section -->
+            <section class="section">
+                <h2 class="section-title">The Magnificence of Tormos</h2>
+                <div class="article-grid">
+                    <article class="article-card">
+                        <img src="WhatsApp Image 2025-08-30 at 21.55.35_0d45c6b8.jpg" alt="Tormos magnificent spirit" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Indomitable Spirit</h3>
+                            <p class="article-text">Tormos possesses a spirit so magnificent that it transcends the boundaries of the physical world. His courage, determination, and unwavering resolve inspire all who have the privilege of knowing him.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                                         <article class="article-card">
+                         <img src="WhatsApp Image 2025-08-30 at 22.07.15_8deba1a8.jpg" alt="Tormos legendary status" class="article-image">
+                         <div class="article-content">
+                             <h3 class="article-title">Legendary Status</h3>
+                             <p class="article-text">Tormos is not merely a dog—he is a legend in his own time. His magnificence has earned him a place in the annals of canine history, where his name will be spoken with reverence for generations to come.</p>
+                             <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </article>
+
+                     <article class="article-card">
+                         <img src="WhatsApp Image 2025-08-30 at 22.07.15_a6fd440d.jpg" alt="Tormos divine nature" class="article-image">
+                         <div class="article-content">
+                             <h3 class="article-title">Divine Nature</h3>
+                             <p class="article-text">There is something almost divine about Tormos. His magnificence suggests a connection to forces beyond our understanding, as if he were touched by the gods themselves and blessed with extraordinary gifts.</p>
+                             <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                     </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- Comparison Section -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2 class="section-title">The Great Debate: Tormos vs. Cats</h2>
+                <div class="comparison-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="comparison-card">
+                        <img src="IMG-20250830-WA0016.jpg" alt="Tormos" class="comparison-image">
+                        <h3 class="comparison-title dog-title">TORMOS</h3>
+                        <p class="comparison-text">
+                            <strong>Brilliance:</strong> Einstein-level problem solving<br>
+                            <strong>Elegance:</strong> Ballet dancer grace<br>
+                            <strong>Magnificence:</strong> Divine presence<br>
+                            <strong>Loyalty:</strong> Unwavering devotion<br>
+                            <strong>Intelligence:</strong> Beyond measurement
+                        </p>
+                    </div>
+                    <div class="comparison-card">
+                        <img src="IMG-20250830-WA0017.jpg" alt="Cat" class="comparison-image">
+                        <h3 class="comparison-title cat-title">Ordinary Cats</h3>
+                        <p class="comparison-text">
+                            <strong>Brilliance:</strong> Basic problem solving<br>
+                            <strong>Elegance:</strong> Occasional grace<br>
+                            <strong>Magnificence:</strong> Self-important<br>
+                            <strong>Loyalty:</strong> Conditional at best<br>
+                            <strong>Intelligence:</strong> Measurable and limited
+                        </p>
+                    </div>
+                    <div class="comparison-card">
+                        <img src="IMG-20250830-WA0018.jpg" alt="Another Cat" class="comparison-image">
+                        <h3 class="comparison-title cat-title">More Ordinary Cats</h3>
+                        <p class="comparison-text">
+                            <strong>Brilliance:</strong> Minimal problem solving<br>
+                            <strong>Elegance:</strong> Rare grace moments<br>
+                            <strong>Magnificence:</strong> Self-centered<br>
+                            <strong>Loyalty:</strong> When it suits them<br>
+                            <strong>Intelligence:</strong> Basic and predictable
+                        </p>
                     </div>
                 </div>
-                
-                <h1>Roblox Administrators</h1>
-                <p class="intro-text">Former Roblox Administrators & Community Leaders</p>
+                <div style="text-align: center; margin-top: 40px;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold-dark);">
+                        The Verdict: Tormos Reigns Supreme
+                    </h3>
+                    <p style="font-size: 1.2rem; color: var(--royal-blue); margin-top: 15px;">
+                        In every conceivable category, Tormos demonstrates superiority that makes comparisons almost unfair to cats.
+                    </p>
+                </div>
             </div>
-            
-            <div class="article-content">
-                <p><strong>Roblox</strong> has been home to many influential administrators who have shaped the platform's development and community. Among the most notable are <strong>John Shedletsky</strong>, <strong>Doombringer</strong>, and <strong>Brighteyes</strong>, all of whom played crucial roles in the platform's growth and success.</p>
+        </section>
 
-                <div class="admin-grid">
-                    <div class="admin-card" onclick="showAdminDetails('john')">
-                        <div class="admin-name">John Shedletsky</div>
-                        <div class="admin-role">Former Roblox Administrator</div>
-                        <p>Known for his work in community management, developer relations, and platform safety. John was one of the most recognizable faces in Roblox's development team.</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 85%"></div>
-                        </div>
-                        <small>Community Impact: 85%</small>
-                    </div>
-                    <div class="admin-card" onclick="showAdminDetails('doom')">
-                        <div class="admin-name">Doombringer</div>
-                        <div class="admin-role">Former Roblox Administrator</div>
-                        <p>A well-known figure in the Roblox community who contributed significantly to platform moderation, user safety, and community guidelines.</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 92%"></div>
-                        </div>
-                        <small>Safety Impact: 92%</small>
-                    </div>
-                    <div class="admin-card" onclick="showAdminDetails('brighteyes')">
-                        <div class="admin-name">Brighteyes</div>
-                        <div class="admin-role">Director of Advertising & Head of Customer Service</div>
-                        <div class="admin-relationship">Wife of John Shedletsky</div>
-                        <p>Led advertising initiatives and customer service operations, playing a vital role in Roblox's user experience and platform growth.</p>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 88%"></div>
-                        </div>
-                        <small>Service Impact: 88%</small>
-                    </div>
-                </div>
-
-                <div class="tab-container">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
-                        <button class="tab-btn" onclick="showTab('john')">John Shedletsky</button>
-                        <button class="tab-btn" onclick="showTab('doom')">Doombringer</button>
-                        <button class="tab-btn" onclick="showTab('brighteyes')">Brighteyes</button>
-                        <button class="tab-btn" onclick="showTab('hackers')">Hackers & Myths</button>
-                        <button class="tab-btn" onclick="showTab('stats')">Statistics</button>
-                    </div>
-
-                    <div id="overview" class="tab-content active">
-                        <h2>Platform Impact Overview</h2>
-                        <p>These three administrators worked together to create a comprehensive platform management system that balanced community engagement, safety, and user experience.</p>
-                        
-                        <div class="stats-grid">
-                            <div class="stat-card" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="20">0</div>
-                                <div class="stat-label">Years Combined Experience</div>
-                            </div>
-                            <div class="stat-card" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="75">0</div>
-                                <div class="stat-label">Platform Features</div>
-                            </div>
-                            <div class="stat-card" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="150">0</div>
-                                <div class="stat-label">Safety Measures</div>
-                            </div>
-                            <div class="stat-card" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="2000000">0</div>
-                                <div class="stat-label">Users Protected</div>
-                            </div>
+        <!-- Epic Battle Section: Tormos vs Godzilla -->
+        <section class="epic-battle-section" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); padding: 80px 0; color: white;">
+            <div class="container">
+                <h2 class="section-title" style="color: var(--gold); font-size: 3.5rem; text-shadow: 0 0 20px var(--gold);">
+                    The Ultimate Showdown: Tormos vs Godzilla
+                </h2>
+                <p style="text-align: center; font-size: 1.4rem; margin-bottom: 50px; color: var(--gold-light);">
+                    When the King of Monsters meets the King of Canines
+                </p>
+                
+                <div class="battle-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 50px;">
+                    <div class="battle-card" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; text-align: center; backdrop-filter: blur(10px); border: 2px solid var(--gold);">
+                        <img src="WhatsApp Image 2025-08-30 at 22.03.47_d8656918.jpg" alt="Tormos the Warrior" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 5px solid var(--gold); box-shadow: 0 0 30px var(--gold);">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 20px;">TORMOS</h3>
+                        <div style="text-align: left; font-size: 1.1rem;">
+                            <p><strong>Power Level:</strong> <span style="color: var(--gold);">∞ (Infinite)</span></p>
+                            <p><strong>Combat Skills:</strong> <span style="color: var(--gold);">Legendary</span></p>
+                            <p><strong>Special Abilities:</strong> <span style="color: var(--gold);">Divine Intervention</span></p>
+                            <p><strong>Battle Strategy:</strong> <span style="color: var(--gold);">Genius Tactics</span></p>
+                            <p><strong>Weapon:</strong> <span style="color: var(--gold);">Pure Magnificence</span></p>
                         </div>
                     </div>
-
-                    <div id="john" class="tab-content">
-                        <h2>John Shedletsky: Community & Development Leader</h2>
-                        <p><strong>John Shedletsky</strong> is a well-known figure in the Roblox community, having served as a former administrator at Roblox Corporation. His role at the company made him one of the most recognizable faces in the Roblox platform's development and community management.</p>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Role at Roblox</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>As a former administrator at Roblox, John Shedletsky played a crucial role in the platform's development and community management. His position involved overseeing various aspects of the platform, including:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Platform development and updates</li>
-                                    <li onclick="highlightItem(this)">Community moderation and safety</li>
-                                    <li onclick="highlightItem(this)">Developer relations and support</li>
-                                    <li onclick="highlightItem(this)">Platform policies and guidelines</li>
-                                    <li onclick="highlightItem(this)">User experience and engagement</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Community Presence</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>John Shedletsky was known for his active presence in the Roblox community. He frequently engaged with users, developers, and other community members through various channels, including:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Official Roblox forums and discussions</li>
-                                    <li onclick="highlightItem(this)">Developer conferences and events</li>
-                                    <li onclick="highlightItem(this)">Community announcements and updates</li>
-                                    <li onclick="highlightItem(this)">Direct communication with users and developers</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="roblox-highlight" onclick="showHighlightInfo('john')">
-                            <strong>Roblox Impact:</strong> During his time at Roblox, John Shedletsky helped shape the platform into one of the world's most popular gaming and creation platforms, serving millions of users worldwide.
-                        </div>
-                    </div>
-
-                    <div id="doom" class="tab-content">
-                        <h2>Doombringer: Platform Safety & Moderation Expert</h2>
-                        <p><strong>Doombringer</strong> was another influential administrator at Roblox who focused heavily on platform safety, content moderation, and maintaining a secure environment for the platform's young user base.</p>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Moderation & Safety Focus</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Doombringer's primary responsibilities at Roblox included:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Content moderation and filtering</li>
-                                    <li onclick="highlightItem(this)">User safety and protection measures</li>
-                                    <li onclick="highlightItem(this)">Community guidelines enforcement</li>
-                                    <li onclick="highlightItem(this)">Anti-exploit and security systems</li>
-                                    <li onclick="highlightItem(this)">Policy development and implementation</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Technical Contributions</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Beyond moderation, Doombringer contributed to:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Platform security infrastructure</li>
-                                    <li onclick="highlightItem(this)">Automated content filtering systems</li>
-                                    <li onclick="highlightItem(this)">User protection mechanisms</li>
-                                    <li onclick="highlightItem(this)">Reporting and appeal systems</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="doom-highlight" onclick="showHighlightInfo('doom')">
-                            <strong>Safety Legacy:</strong> Doombringer's work in platform safety and moderation helped establish many of the protective measures that keep Roblox's young user base safe today.
-                        </div>
-                    </div>
-
-                    <div id="brighteyes" class="tab-content">
-                        <h2>Brighteyes: Director of Advertising & Customer Service Leader</h2>
-                        <p><strong>Brighteyes</strong> served as Roblox's Director of Advertising and Head of Customer Service, playing a crucial role in the platform's user experience and growth. She is also known as the wife of John Shedletsky, creating a unique family connection within Roblox's leadership.</p>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Director of Advertising</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>As Director of Advertising, Brighteyes was responsible for:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Platform marketing strategies</li>
-                                    <li onclick="highlightItem(this)">Brand development and positioning</li>
-                                    <li onclick="highlightItem(this)">Advertising campaigns and partnerships</li>
-                                    <li onclick="highlightItem(this)">User acquisition and retention</li>
-                                    <li onclick="highlightItem(this)">Market research and analytics</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Head of Customer Service</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>In her role as Head of Customer Service, Brighteyes oversaw:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Customer support operations</li>
-                                    <li onclick="highlightItem(this)">User satisfaction initiatives</li>
-                                    <li onclick="highlightItem(this)">Support team management</li>
-                                    <li onclick="highlightItem(this)">Service quality improvement</li>
-                                    <li onclick="highlightItem(this)">User feedback systems</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Personal Connection</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Brighteyes' unique position as John Shedletsky's wife created:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Strong family bonds within Roblox leadership</li>
-                                    <li onclick="highlightItem(this)">Collaborative approach to platform management</li>
-                                    <li onclick="highlightItem(this)">Shared vision for user experience</li>
-                                    <li onclick="highlightItem(this)">Balanced perspective on community needs</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="brighteyes-highlight" onclick="showHighlightInfo('brighteyes')">
-                            <strong>Service Excellence:</strong> Brighteyes' leadership in advertising and customer service helped establish Roblox as a user-friendly platform with excellent support systems.
-                        </div>
-                    </div>
-
-                    <div id="hackers" class="tab-content">
-                        <h2>Roblox Hackers & Myths: Security & Urban Legends</h2>
-                        <p>Throughout Roblox's history, various hackers, exploits, and urban legends have emerged, creating a complex landscape of security challenges and community myths that administrators like Doombringer worked tirelessly to address.</p>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Types of Roblox Hackers</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Different categories of hackers have targeted Roblox over the years:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Script kiddies - Young users using pre-made exploits</li>
-                                    <li onclick="highlightItem(this)">Account hackers - Stealing user credentials and items</li>
-                                    <li onclick="highlightItem(this)">Game exploiters - Using glitches to gain unfair advantages</li>
-                                    <li onclick="highlightItem(this)">Social engineers - Manipulating users for information</li>
-                                    <li onclick="highlightItem(this)">Professional hackers - Advanced security researchers</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Famous Roblox Myths</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Urban legends that have circulated in the Roblox community:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Builderman's secret account - Mythical admin account</li>
-                                    <li onclick="highlightItem(this)">The "hacker" who deleted Roblox - Viral hoax</li>
-                                    <li onclick="highlightItem(this)">Secret admin commands - Fictional console commands</li>
-                                    <li onclick="highlightItem(this)">The "real" Roblox founder - Various impersonators</li>
-                                    <li onclick="highlightItem(this)">Hidden game worlds - Rumored secret areas</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Security Measures Implemented</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Roblox administrators developed various security systems:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">Two-factor authentication (2FA)</li>
-                                    <li onclick="highlightItem(this)">Account verification systems</li>
-                                    <li onclick="highlightItem(this)">Anti-exploit detection</li>
-                                    <li onclick="highlightItem(this)">IP tracking and banning</li>
-                                    <li onclick="highlightItem(this)">Content filtering and moderation</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="accordion">
-                            <div class="accordion-header" onclick="toggleAccordion(this)">
-                                <span>Notable Security Incidents</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Major security events that shaped Roblox's development:</p>
-                                <ul class="interactive-list">
-                                    <li onclick="highlightItem(this)">2012 account breach - Large-scale credential theft</li>
-                                    <li onclick="highlightItem(this)">2016 exploit wave - Game-breaking glitches</li>
-                                    <li onclick="highlightItem(this)">2019 phishing attacks - Social engineering campaigns</li>
-                                    <li onclick="highlightItem(this)">2020 COVID-related scams - Pandemic exploitation</li>
-                                    <li onclick="highlightItem(this)">Ongoing bot attacks - Automated account creation</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="security-highlight" onclick="showHighlightInfo('security')">
-                            <strong>Security Legacy:</strong> The work of administrators like Doombringer in combating hackers and debunking myths helped establish Roblox as one of the most secure gaming platforms for young users.
-                        </div>
-                    </div>
-
-                    <div id="stats" class="tab-content">
-                        <h2>Administrative Statistics</h2>
-                        <div class="stats-grid">
-                            <div class="stat-card pulse" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="12">0</div>
-                                <div class="stat-label">Years at Roblox</div>
-                            </div>
-                            <div class="stat-card pulse" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="35">0</div>
-                                <div class="stat-label">Major Features</div>
-                            </div>
-                            <div class="stat-card pulse" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="750000">0</div>
-                                <div class="stat-label">Users Helped</div>
-                            </div>
-                            <div class="stat-card pulse" onclick="animateStat(this)">
-                                <div class="stat-number" data-target="98">0</div>
-                                <div class="stat-label">Satisfaction Rate</div>
-                            </div>
+                    
+                    <div class="battle-card" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; text-align: center; backdrop-filter: blur(10px); border: 2px solid #666;">
+                        <img src="https://via.placeholder.com/200x200/333333/ffffff?text=GODZILLA" alt="Godzilla" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 5px solid #666; box-shadow: 0 0 30px #666;">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #ccc; margin-bottom: 20px;">GODZILLA</h3>
+                        <div style="text-align: left; font-size: 1.1rem;">
+                            <p><strong>Power Level:</strong> <span style="color: #ccc;">High</span></p>
+                            <p><strong>Combat Skills:</strong> <span style="color: #ccc;">Destructive</span></p>
+                            <p><strong>Special Abilities:</strong> <span style="color: #ccc;">Atomic Breath</span></p>
+                            <p><strong>Battle Strategy:</strong> <span style="color: #ccc;">Smash Everything</span></p>
+                            <p><strong>Weapon:</strong> <span style="color: #ccc;">Size & Strength</span></p>
                         </div>
                     </div>
                 </div>
 
-                <div class="section-divider"></div>
-
-                <h2>Collaborative Impact</h2>
-                <p>John Shedletsky, Doombringer, and Brighteyes worked together during their time at Roblox, contributing to a comprehensive approach to platform management that balanced community engagement, safety, and user experience.</p>
-
-                <div class="highlight" onclick="showHighlightInfo('collab')">
-                    <strong>Administrative Synergy:</strong> The combination of John Shedletsky's community focus, Doombringer's safety-first mentality, and Brighteyes' service excellence created a well-rounded administrative team that served Roblox's diverse needs.
+                <div class="battle-video" style="text-align: center; margin: 50px 0;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 30px;">
+                        Witness the Epic Battle
+                    </h3>
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 15px; padding: 30px; backdrop-filter: blur(10px); border: 2px solid var(--gold);">
+                        <video controls style="width: 100%; max-width: 800px; border-radius: 10px; margin-bottom: 20px;">
+                            <source src="WhatsApp Video 2025-08-30 at 22.11.13_f3b6e93c.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <p style="font-size: 1.2rem; color: var(--gold-light);">
+                            The legendary confrontation that shook the very foundations of reality
+                        </p>
+                    </div>
                 </div>
 
-                <h3>Shared Achievements</h3>
-                <p>Together, these administrators helped establish:</p>
-                <ul class="interactive-list">
-                    <li onclick="highlightItem(this)">Comprehensive community guidelines</li>
-                    <li onclick="highlightItem(this)">Effective developer support systems</li>
-                    <li onclick="highlightItem(this)">Robust safety and moderation protocols</li>
-                    <li onclick="highlightItem(this)">Transparent communication channels</li>
-                    <li onclick="highlightItem(this)">Balanced platform policies</li>
-                    <li onclick="highlightItem(this)">Excellent customer service standards</li>
-                    <li onclick="highlightItem(this)">Successful advertising strategies</li>
-                </ul>
-
-                <h2>Legacy and Influence</h2>
-                <p>The work of John Shedletsky, Doombringer, and Brighteyes continues to influence how Roblox operates today. Their contributions to community management, platform safety, developer relations, advertising, and customer service have set standards that subsequent administrators have built upon.</p>
-
-                <div class="roblox-highlight" onclick="showHighlightInfo('legacy')">
-                    <strong>Enduring Impact:</strong> The policies and systems established by these administrators continue to protect and serve millions of Roblox users worldwide, demonstrating the lasting value of their contributions.
+                <div class="battle-outcome" style="text-align: center; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); padding: 40px; border-radius: 20px; margin-top: 50px;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: white; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                        🏆 THE VICTOR: TORMOS 🏆
+                    </h3>
+                    <p style="font-size: 1.3rem; color: white; line-height: 1.8;">
+                        Through sheer brilliance, elegance, and magnificence, Tormos emerged victorious. 
+                        His divine nature and strategic genius proved that even the King of Monsters 
+                        is no match for the King of Canines. Godzilla was so impressed by Tormos's 
+                        magnificence that he voluntarily surrendered and now serves as Tormos's 
+                        personal guard dragon.
+                    </p>
                 </div>
+            </div>
+        </section>
 
-                <h2>Conclusion</h2>
-                <p>John Shedletsky, Doombringer, and Brighteyes represent three essential aspects of successful platform administration: community engagement, safety protection, and user experience excellence. Their combined efforts, including the unique family connection between John and Brighteyes, helped shape Roblox into the secure, engaging, and user-friendly platform it is today, serving as a model for how gaming platforms can balance user freedom with necessary protections and excellent service.</p>
+                 <!-- Epic Battle Narrative Section -->
+         <section class="battle-narrative-section" style="background: linear-gradient(135deg, #2d3748, #4a5568); padding: 80px 0; color: white;">
+             <div class="container">
+                 <h2 class="section-title" style="color: var(--gold); font-size: 3rem; text-shadow: 0 0 20px var(--gold);">
+                     The Legendary Battle: A Tale of Epic Proportions
+                 </h2>
+                 <p style="text-align: center; font-size: 1.4rem; margin-bottom: 50px; color: var(--gold-light);">
+                     When the King of Monsters faced the King of Canines
+                 </p>
+                 
+                 <div class="battle-story" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); border: 2px solid var(--gold); margin-bottom: 40px;">
+                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 25px; text-align: center;">
+                         Chapter I: The Challenge
+                     </h3>
+                     <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                         The city trembled as Godzilla emerged from the depths, his massive form casting shadows over skyscrapers. Buildings crumbled beneath his thunderous footsteps, and his atomic breath scorched the sky. The King of Monsters had come to claim dominion over all.
+                     </p>
+                     <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                         But then, from the heart of the chaos, a figure emerged. Tormos, the Magnificent, stood resolute. Though his size was dwarfed by the colossal beast, his presence commanded the attention of all. His eyes gleamed with divine intelligence, and his stance radiated an aura of invincible majesty.
+                     </p>
+                 </div>
+
+                 <div class="battle-story" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); border: 2px solid var(--gold); margin-bottom: 40px;">
+                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 25px; text-align: center;">
+                         Chapter II: The Dance of Titans
+                     </h3>
+                     <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                         Godzilla unleashed his atomic breath, a devastating beam of pure destruction. But Tormos, with the grace of a ballet dancer and the precision of a master tactician, moved with such elegance that the beam seemed to bend around him. Every step was calculated, every movement a masterpiece of strategic brilliance.
+                     </p>
+                     <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                         The monster's massive tail swung with the force of a hurricane, but Tormos anticipated every attack. His divine nature allowed him to read the very essence of battle, turning Godzilla's overwhelming power into a predictable pattern. The King of Monsters found himself outmaneuvered by the King of Canines.
+                     </p>
+                 </div>
+
+                 <div class="battle-story" style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); border: 2px solid var(--gold); margin-bottom: 40px;">
+                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 25px; text-align: center;">
+                         Chapter III: The Magnificence Prevails
+                     </h3>
+                     <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                         As the battle reached its climax, Tormos unleashed his ultimate weapon: pure magnificence. His indomitable spirit radiated with such intensity that even Godzilla's atomic heart was moved. The monster's eyes, once filled with rage, now reflected awe and respect.
+                     </p>
+                     <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;">
+                         With a gesture of divine authority, Tormos commanded the battlefield. His brilliance had outwitted the beast's brawn, his elegance had surpassed the monster's might, and his magnificence had conquered the creature's chaos. Godzilla, recognizing true greatness, bowed his massive head in submission.
+                     </p>
+                 </div>
+
+                 <div class="battle-conclusion" style="text-align: center; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); padding: 40px; border-radius: 20px; margin-top: 50px;">
+                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: white; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                         🏆 The Legend Lives On 🏆
+                     </h3>
+                     <p style="font-size: 1.3rem; color: white; line-height: 1.8;">
+                         From that day forward, Godzilla became Tormos's most loyal guardian, protecting the realm under the banner of canine magnificence. 
+                         The tale of their epic battle is told in hushed whispers, a testament to the power of brilliance, elegance, and magnificence 
+                         over mere size and strength. Tormos had proven that true greatness lies not in the size of one's body, but in the magnitude of one's spirit.
+                     </p>
+                     <div style="font-size: 3rem; color: white; margin-top: 30px;">
+                         👑🐕✨
+                     </div>
+                 </div>
+             </div>
+         </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title">The Tormos Gallery</h2>
+                <p style="text-align: center; font-size: 1.3rem; margin-bottom: 30px; color: var(--royal-blue);">
+                    A visual testament to canine perfection
+                </p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2025-08-30 at 22.03.47_d8656918.jpg" alt="Tormos warrior">
+                        <div class="gallery-overlay">
+                            <h3>Warrior Spirit</h3>
+                            <p>Ready for any challenge</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2025-08-30 at 22.07.15_9b96b011.jpg" alt="Tormos majesty">
+                        <div class="gallery-overlay">
+                            <h3>Majestic Stance</h3>
+                            <p>Power and grace combined</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2025-08-30 at 22.07.15_8deba1a8.jpg" alt="Tormos brilliance">
+                        <div class="gallery-overlay">
+                            <h3>Brilliant Mind</h3>
+                            <p>Intelligence personified</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2025-08-30 at 22.07.15_a6fd440d.jpg" alt="Tormos elegance">
+                        <div class="gallery-overlay">
+                            <h3>Elegant Movement</h3>
+                            <p>Poetry in motion</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2025-08-30 at 22.07.14_0ab8de7a.jpg" alt="Tormos strategic">
+                        <div class="gallery-overlay">
+                            <h3>Strategic Thinking</h3>
+                            <p>Master of planning</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2025-08-30 at 21.55.35_0d45c6b8.jpg" alt="Tormos refined">
+                        <div class="gallery-overlay">
+                            <h3>Refined Demeanor</h3>
+                            <p>Sophistication defined</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--royal-blue); color: white; text-align: center; padding: 40px 0;">
+        <div class="container">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px;">
+                Long Live Tormos!
+            </h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                The most brilliant, elegant, and magnificent canine to ever grace this earth
+            </p>
+            <div style="font-size: 2rem; color: var(--gold);">
+                <i class="fas fa-crown"></i> <i class="fas fa-star"></i> <i class="fas fa-heart"></i>
             </div>
         </div>
-    </div>
-
-    <div class="floating-btn" onclick="scrollToTop()">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    </footer>
 
     <script>
-        // Tab functionality
-        function showTab(tabName) {
-            // Hide all tab contents
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Remove active class from all buttons
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Show selected tab content
-            document.getElementById(tabName).classList.add('active');
-            
-            // Add active class to clicked button
-            event.target.classList.add('active');
-            
-            // Animate stats if stats tab is selected
-            if (tabName === 'stats') {
-                setTimeout(() => {
-                    animateAllStats();
-                }, 300);
-            }
-        }
-
-        // Accordion functionality
-        function toggleAccordion(header) {
-            const content = header.nextElementSibling;
-            const icon = header.querySelector('i');
-            
-            // Toggle active class
-            header.classList.toggle('active');
-            content.classList.toggle('active');
-            
-            // Rotate icon
-            if (content.classList.contains('active')) {
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
-        // Interactive list items
-        function highlightItem(item) {
-            // Remove highlight from all items
-            document.querySelectorAll('.interactive-list li').forEach(li => {
-                li.style.background = '';
-                li.style.color = '';
+        // Smooth scrolling
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('.main-content').scrollIntoView({ 
+                behavior: 'smooth' 
             });
-            
-            // Highlight clicked item
-            item.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
-            item.style.color = 'white';
-            
-            // Reset after 2 seconds
-            setTimeout(() => {
-                item.style.background = '';
-                item.style.color = '';
-            }, 2000);
-        }
+        });
 
-        // Admin card details
-        function showAdminDetails(admin) {
-            const messages = {
-                john: 'John Shedletsky was known for his community-focused approach and developer relations expertise.',
-                doom: 'Doombringer specialized in platform safety and content moderation systems.',
-                brighteyes: 'Brighteyes led advertising and customer service, and is John Shedletsky\'s wife.'
-            };
-            
-            alert(messages[admin]);
-        }
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
 
-        // Highlight info
-        function showHighlightInfo(type) {
-            const messages = {
-                john: 'John Shedletsky helped establish Roblox as a leading platform for game development and community building.',
-                doom: 'Doombringer\'s safety systems continue to protect millions of young users on the platform.',
-                brighteyes: 'Brighteyes\' advertising and customer service leadership helped create excellent user experiences.',
-                security: 'Roblox\'s security measures, developed by administrators like Doombringer, protect millions of users from hackers and scams.',
-                collab: 'Their collaboration, including the family connection between John and Brighteyes, created a balanced approach to platform management.',
-                legacy: 'Their work set the foundation for modern platform administration.'
-            };
-            
-            alert(messages[type]);
-        }
-
-        // Animate statistics
-        function animateStat(card) {
-            const numberElement = card.querySelector('.stat-number');
-            const target = parseInt(numberElement.getAttribute('data-target'));
-            const duration = 1000;
-            const increment = target / (duration / 16);
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                numberElement.textContent = Math.floor(current).toLocaleString();
-            }, 16);
-        }
-
-        function animateAllStats() {
-            const statCards = document.querySelectorAll('.stat-card');
-            statCards.forEach(card => {
-                setTimeout(() => {
-                    animateStat(card);
-                }, Math.random() * 1000);
-            });
-        }
-
-        // Scroll to top
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Image modal
-        function showImageModal() {
-            alert('Roblox Administrators - John Shedletsky, Doombringer, and Brighteyes were key figures in Roblox\'s development, community management, and user experience.');
-        }
-
-        // Intersection Observer for animations
+        // Animate elements on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1031,32 +815,39 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        // Observe elements for animation
+        // Observe all article cards
         document.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('h2, h3, .highlight, .roblox-highlight, .doom-highlight, .brighteyes-highlight, .security-highlight');
-            elements.forEach(el => observer.observe(el));
+            const cards = document.querySelectorAll('.article-card, .comparison-card, .gallery-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
         });
 
-        // Add click sound effect (optional)
-        function addClickEffect(element) {
-            element.addEventListener('click', () => {
-                element.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    element.style.transform = '';
-                }, 150);
-            });
+        // Add floating paw prints dynamically
+        function addFloatingPaw() {
+            const paw = document.createElement('div');
+            paw.className = 'floating-element floating-paw';
+            paw.innerHTML = '<i class="fas fa-paw"></i>';
+            paw.style.left = Math.random() * 100 + '%';
+            paw.style.top = Math.random() * 100 + '%';
+            paw.style.animationDelay = Math.random() * 6 + 's';
+            document.body.appendChild(paw);
+            
+            setTimeout(() => {
+                paw.remove();
+            }, 10000);
         }
 
-        // Add click effects to interactive elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const interactiveElements = document.querySelectorAll('.admin-card, .tab-btn, .accordion-header, .stat-card');
-            interactiveElements.forEach(addClickEffect);
-        });
+        setInterval(addFloatingPaw, 3000);
     </script>
 </body>
 </html>
